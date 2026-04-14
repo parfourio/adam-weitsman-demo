@@ -1,0 +1,11 @@
+{
+  "name": "adam-weitsman-demo",
+  "version": "1.0.0",
+  "description": "Adam Weitsman concept demo",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

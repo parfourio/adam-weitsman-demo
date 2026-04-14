@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Weitsman | Entrepreneur · Philanthropist · Art Collector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:       #080808;
+      --dark:        #0d0d0d;
+      --dark-card:   #151515;
+      --dark-border: #222222;
+      --orange:      #e07820;
+      --orange-light:#f0943a;
+      --orange-pale: rgba(224,120,32,0.1);
+      --cream:       #f0ece4;
+      --cream-mid:   rgba(240,236,228,0.65);
+      --cream-dim:   rgba(240,236,228,0.28);
+      --text-mid:    #8a8070;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── BANNER ── */
+    .outreach-banner {
+      background: var(--orange);
+      color: var(--black);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+      z-index: 1000;
+    }
+    .outreach-banner a {
+      display: inline-block;
+      background: var(--black);
+      color: var(--orange-light);
+      padding: 6px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .outreach-banner a:hover { background: #1a1a1a; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(8,8,8,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cream-mid);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange-light); }
+    .nav-links .nav-cta a {
+      background: var(--orange);
+      color: var(--black);
+      padding: 7px 16px;
+      border-radius: 2px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta a:hover { background: var(--orange-light); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(8,8,8,0.88) 40%, rgba(8,8,8,0.3) 100%),
+        linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.1) 50%);
+      z-index: 1;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-eyebrow-line { width: 36px; height: 1px; background: var(--orange); }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 10vw, 130px);
+      line-height: 0.88;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .hero h1 .orange { color: var(--orange); display: block; }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--cream-mid);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-orange {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--black);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-orange:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid rgba(240,236,228,0.25);
+      color: var(--cream-mid);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange-light); }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--orange);
+      overflow: hidden;
+      padding: 10px 0;
+    }
+    .ticker-track {
+      display: flex;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .ticker-sep { color: rgba(8,8,8,0.3); padding: 0 8px; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── STATS ── */
+    .stats-strip {
+      background: var(--dark);
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .stats-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .stat-item {
+      padding: 32px 20px;
+      text-align: center;
+      border-right: 1px solid var(--dark-border);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%; right: 20%;
+      height: 2px;
+      background: var(--orange);
+      opacity: 0.5;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+
+    /* ── SHARED ── */
+    section { scroll-margin-top: 60px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .eyebrow-line { width: 28px; height: 1px; background: var(--orange); }
+    .eyebrow-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px);
+      color: var(--cream);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .section-heading span { color: var(--orange); }
+    .body-text {
+      font-size: 15px;
+      color: var(--cream-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .about-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-quote {
+      border-left: 3px solid var(--orange);
+      padding: 20px 24px;
+      background: var(--dark-card);
+      border-radius: 0 2px 2px 0;
+      margin: 28px 0;
+    }
+    .about-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    .about-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--dark-border);
+    }
+    .about-milestone {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--dark-border);
+      align-items: flex-start;
+    }
+    .milestone-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      min-width: 64px;
+      line-height: 1.1;
+    }
+    .milestone-text {
+      font-size: 13px;
+      color: var(--cream-mid);
+      line-height: 1.65;
+    }
+    .milestone-title {
+      font-weight: 700;
+      color: var(--cream);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── BUSINESS ── */
+    .business-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .business-section::before {
+      content: 'RECYCLING';
+      position: absolute;
+      top: -30px; right: -60px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 200px;
+      color: rgba(224,120,32,0.03);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+    }
+    .business-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .business-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--dark-border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .biz-stat {
+      background: var(--dark-card);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .biz-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .biz-stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .awards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .award-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-left: 2px solid var(--orange);
+      border-radius: 0 2px 2px 0;
+    }
+    .award-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--orange);
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .award-text {
+      font-size: 12px;
+      color: var(--cream-mid);
+      line-height: 1.5;
+    }
+    .award-text strong { color: var(--cream); font-weight: 600; }
+
+    /* ── PHILANTHROPY ── */
+    .phil-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .phil-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .phil-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .phil-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .phil-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-top: 2px solid var(--orange);
+      border-radius: 2px;
+      padding: 28px 24px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .phil-card:hover {
+      border-color: var(--orange-light);
+      transform: translateY(-3px);
+    }
+    .phil-card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .phil-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+    .phil-card p {
+      font-size: 13px;
+      color: var(--cream-mid);
+      line-height: 1.65;
+    }
+    .phil-card-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-top: 12px;
+    }
+
+    /* ── ART ── */
+    .art-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .art-section::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(224,120,32,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .art-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .art-right h2 { margin-bottom: 20px; }
+    .art-collection-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 32px;
+      margin: 28px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .art-collection-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+    }
+    .art-collection-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .art-collection-card p {
+      font-size: 13px;
+      color: var(--cream-mid);
+      line-height: 1.65;
+    }
+    .art-highlight {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-top: 6px;
+    }
+    .art-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .art-fact {
+      padding: 20px 22px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .art-fact-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      line-height: 1;
+      min-width: 60px;
+    }
+    .art-fact-text {
+      font-size: 13px;
+      color: var(--cream-mid);
+      line-height: 1.6;
+    }
+    .art-fact-text strong { color: var(--cream); }
+
+    /* ── KREBS ── */
+    .krebs-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .krebs-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .krebs-right h2 { margin-bottom: 16px; }
+    .krebs-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .krebs-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--orange);
+    }
+    .krebs-card-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      color: rgba(224,120,32,0.08);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      position: absolute;
+      right: 16px;
+      bottom: -10px;
+    }
+    .krebs-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .krebs-card-sub {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .krebs-card p {
+      font-size: 13px;
+      color: var(--cream-mid);
+      line-height: 1.7;
+    }
+
+    /* ── SOCIAL ── */
+    .social-section {
+      padding: 80px 24px;
+      background: var(--orange);
+      position: relative;
+      overflow: hidden;
+    }
+    .social-section::before {
+      content: '17M';
+      position: absolute;
+      top: -20px; right: -30px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 220px;
+      color: rgba(8,8,8,0.08);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+    }
+    .social-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .social-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 6vw, 88px);
+      color: var(--black);
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+    .social-left p {
+      font-size: 16px;
+      color: rgba(8,8,8,0.7);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .btn-dark {
+      display: inline-block;
+      background: var(--black);
+      color: var(--orange);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-dark:hover { background: #1a1a1a; }
+    .social-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .social-platform {
+      background: rgba(8,8,8,0.15);
+      border: 1px solid rgba(8,8,8,0.2);
+      border-radius: 2px;
+      padding: 22px 18px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .social-platform:hover { background: rgba(8,8,8,0.25); }
+    .social-platform-name {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .social-platform-handle {
+      font-size: 11px;
+      color: rgba(8,8,8,0.6);
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 100px 24px;
+      background: var(--dark);
+    }
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 4vw, 60px);
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .contact-inner > p {
+      font-size: 15px;
+      color: var(--cream-mid);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .contact-form {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 36px;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 11px 14px;
+      font-size: 14px;
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: rgba(224,120,32,0.45); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select option { background: var(--dark); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      width: 100%;
+      background: var(--orange);
+      color: var(--black);
+      border: none;
+      padding: 13px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--orange-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 2px solid var(--orange);
+      padding: 48px 24px 28px;
+    }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--dark-border);
+      margin-bottom: 24px;
+    }
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .footer-brand span { color: var(--orange); }
+    .footer-tagline {
+      font-size: 11px;
+      color: var(--cream-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .footer-col h5 {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul a {
+      font-size: 13px;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 11px; color: var(--cream-dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .about-inner, .business-inner, .art-inner,
+      .krebs-inner, .social-inner { grid-template-columns: 1fr; gap: 48px; }
+      .phil-header { grid-template-columns: 1fr; gap: 24px; }
+      .phil-cards { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: repeat(3, 1fr); }
+      .stat-item:nth-child(4),
+      .stat-item:nth-child(5) { border-top: 1px solid var(--dark-border); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: var(--dark);
+        border-top: 1px solid var(--dark-border);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 0;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--dark-border); font-size: 13px; }
+      .nav-links .nav-cta a { border: none; background: none; color: var(--orange); }
+      .phil-cards { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; }
+      .social-right { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="outreach-banner">
+    <span>Hi Adam — I saw you were rebuilding in 2026. I took a shot at what it could look like. Please let me know how I can help you.</span>
+    <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="top">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Adam <span>Weitsman</span></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#philanthropy">Philanthropy</a></li>
+        <li><a href="#art">Art</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="https://www.instagram.com/adamweitsman/" target="_blank">@adamweitsman</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img class="hero-img"
+      src="https://www.upstateshredding.com/app/uploads/2018/10/IMG_9592.jpg"
+      alt="Adam Weitsman" />
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Entrepreneur · Philanthropist · Art Collector · Owego, New York</span>
+      </div>
+      <h1>
+        <span>Adam</span>
+        <span class="orange">Weitsman.</span>
+      </h1>
+      <p class="hero-desc">Third-generation recycling entrepreneur. Builder of the East Coast's largest privately held scrap metal company. Philanthropist. Collector. Restorer of history. And one of the most followed entrepreneurs in America with 17 million Instagram followers.</p>
+      <div class="hero-ctas">
+        <a href="#about" class="btn-orange">The Story</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Upstate Shredding · Weitsman Recycling</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">17 Million Instagram Followers</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">$10M Art Collection · NY State Museum</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">The Krebs · Est. 1899 · Skaneateles</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">80 Years · Family Legacy</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">15 Locations · NY &amp; PA</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Upstate Shredding · Weitsman Recycling</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">17 Million Instagram Followers</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">$10M Art Collection · NY State Museum</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">The Krebs · Est. 1899 · Skaneateles</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">80 Years · Family Legacy</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">15 Locations · NY &amp; PA</span>
+      <span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">1938</div>
+        <div class="stat-label">Family Legacy Begins</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">15</div>
+        <div class="stat-label">Locations · NY &amp; PA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$750M</div>
+        <div class="stat-label">Annual Revenue</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">17M</div>
+        <div class="stat-label">Instagram Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$10M</div>
+        <div class="stat-label">Art Donated to NY Museum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div>
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">The Story</span></div>
+        <h2 class="section-heading">Built from<br>the ground <span>up.</span></h2>
+        <p class="body-text">Adam Weitsman grew up in Owego, New York, the grandson of Ben Weitsman, who founded Ben Weitsman & Son in 1938. The family had been in the metal trade for generations — but Adam saw something different. He left Owego for New York City, studied art and business, worked at the Hirschl &amp; Adler Gallery in Manhattan, and opened his own folk-art gallery on Bleecker Street in Greenwich Village.</p>
+        <div class="about-quote">
+          <p>"Having never forgotten his roots, Adam does his best to support his local community — philanthropically giving millions of dollars over the years."</p>
+        </div>
+        <p class="body-text">Then in 1996 he had an idea. He came home, purchased 17 acres in Owego, and built Upstate Shredding from scratch. He recently enrolled at Harvard University for continuing education in business. The arc — art gallery to scrap metal billionaire to philanthropist — is distinctly American.</p>
+      </div>
+      <div class="about-timeline">
+        <div class="about-milestone">
+          <div class="milestone-year">1938</div>
+          <div class="milestone-text"><span class="milestone-title">Ben Weitsman &amp; Son Founded</span>Grandfather Ben starts the family's metal business in Owego, NY. Three generations of scrap metal follow.</div>
+        </div>
+        <div class="about-milestone">
+          <div class="milestone-year">1986</div>
+          <div class="milestone-text"><span class="milestone-title">Graduates Owego Free Academy</span>Moves to NYC to pursue art. Studies at LIU and NYU, works at Hirschl &amp; Adler Gallery, opens his own folk-art gallery on Bleecker Street.</div>
+        </div>
+        <div class="about-milestone">
+          <div class="milestone-year">1996</div>
+          <div class="milestone-text"><span class="milestone-title">Upstate Shredding Founded</span>Purchases 17 acres in Owego and builds the plant from scratch. Six months from idea to opening.</div>
+        </div>
+        <div class="about-milestone">
+          <div class="milestone-year">2005</div>
+          <div class="milestone-text"><span class="milestone-title">Acquires Family Business</span>Renames the company Upstate Shredding – Weitsman Recycling and begins strategic acquisitions across NY and PA.</div>
+        </div>
+        <div class="about-milestone">
+          <div class="milestone-year">2010</div>
+          <div class="milestone-text"><span class="milestone-title">Restores The Krebs</span>Purchases and renovates the historic Krebs restaurant (est. 1899) in Skaneateles. All net profits go to women's and children's charities in Central NY.</div>
+        </div>
+        <div class="about-milestone">
+          <div class="milestone-year">2014</div>
+          <div class="milestone-text"><span class="milestone-title">$10M Art Gift to NY State Museum</span>Donates his entire private stoneware collection — 500+ pieces valued at $10 million — to the New York State Museum in Albany.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS -->
+  <section class="business-section" id="business">
+    <div class="business-inner">
+      <div>
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Upstate Shredding</span></div>
+        <h2 class="section-heading">The largest<br>private scrap<br>company on the <span>East Coast.</span></h2>
+        <p class="body-text">Upstate Shredding – Weitsman Recycling operates 15 locations across New York and Pennsylvania, processing hundreds of thousands of tons of scrap metal annually. The Owego flagship is home to one of the most advanced non-ferrous separation systems in the world.</p>
+        <p class="body-text">The company is a leader in environmental stewardship — in constant communication with the NY DEC and US EPA, with the majority of processing performed indoors to reduce environmental impact. The shredder at Owego uses dissipating foam rather than water, suppressing dust and reducing fire risk.</p>
+      </div>
+      <div>
+        <div class="business-stats">
+          <div class="biz-stat">
+            <div class="biz-stat-num">15</div>
+            <div class="biz-stat-label">Locations</div>
+          </div>
+          <div class="biz-stat">
+            <div class="biz-stat-num">$750M</div>
+            <div class="biz-stat-label">Annual Revenue</div>
+          </div>
+          <div class="biz-stat">
+            <div class="biz-stat-num">80+</div>
+            <div class="biz-stat-label">Years in Business</div>
+          </div>
+          <div class="biz-stat">
+            <div class="biz-stat-num">800T</div>
+            <div class="biz-stat-label">Tons/Day · Albany</div>
+          </div>
+        </div>
+        <div class="awards">
+          <div class="award-item">
+            <div class="award-year">2014<br>2016</div>
+            <div class="award-text"><strong>S&amp;P Global Platts Industry Leadership Award</strong><br>Global Metals Awards — Scrap &amp; Recycling category</div>
+          </div>
+          <div class="award-item">
+            <div class="award-year">2015<br>2016</div>
+            <div class="award-text"><strong>Scrap Company of the Year</strong><br>American Metal Market — Large Company Category</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILANTHROPY -->
+  <section class="phil-section" id="philanthropy">
+    <div class="phil-inner">
+      <div class="phil-header">
+        <div>
+          <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Giving Back</span></div>
+          <h2 class="section-heading">Millions given.<br>Communities <span>changed.</span></h2>
+        </div>
+        <p class="body-text">Philanthropy is not a side project for Adam Weitsman — it's a defining part of who he is. From paying off school lunch debts to funding food banks to supporting cancer research, his giving is as wide as it is deep.</p>
+      </div>
+      <div class="phil-cards">
+        <div class="phil-card">
+          <span class="phil-card-icon">🍽️</span>
+          <h3>The Krebs Restaurant</h3>
+          <p>Restored the historic Krebs (est. 1899) in Skaneateles and donates all net profits to 16 regional nonprofits serving women and children in Central New York.</p>
+          <div class="phil-card-amount">Est. 1899</div>
+        </div>
+        <div class="phil-card">
+          <span class="phil-card-icon">🏀</span>
+          <h3>Boys &amp; Girls Club</h3>
+          <p>A lifelong supporter — his grandfather started the Tioga County Boys &amp; Girls Club. Adam donated $175,000 after promising the gift if Syracuse basketball pulled off a historic Duke upset.</p>
+          <div class="phil-card-amount">$175K+</div>
+        </div>
+        <div class="phil-card">
+          <span class="phil-card-icon">🤝</span>
+          <h3>Community Impact</h3>
+          <p>$100,000 to the Rescue Mission's culinary education center. Food banks, scholarships, school lunch debt payments, cancer and ALS research, and law enforcement initiatives across upstate NY.</p>
+          <div class="phil-card-amount">$Millions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ART -->
+  <section class="art-section" id="art">
+    <div class="art-inner">
+      <div class="art-left">
+        <div class="art-fact">
+          <div class="art-fact-num">14</div>
+          <div class="art-fact-text"><strong>Age when he started collecting</strong> 19th-century American stoneware — crocks, jugs, and jars featuring intricate cobalt blue decorations.</div>
+        </div>
+        <div class="art-fact">
+          <div class="art-fact-num">500+</div>
+          <div class="art-fact-text"><strong>Pieces donated</strong> to the New York State Museum in Albany — one of the world's largest assemblages of 19th-century American decorated stoneware.</div>
+        </div>
+        <div class="art-fact">
+          <div class="art-fact-num">$10M</div>
+          <div class="art-fact-text"><strong>Value of the collection</strong> donated to the NY State Museum, beginning in 1998 and completed in 2014.</div>
+        </div>
+        <div class="art-fact">
+          <div class="art-fact-num">NYC</div>
+          <div class="art-fact-text"><strong>Hirschl &amp; Adler Gallery, Manhattan.</strong> Folk-art gallery on Bleecker Street, Greenwich Village. Art and business classes at LIU and NYU.</div>
+        </div>
+      </div>
+      <div class="art-right">
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Art &amp; Collection</span></div>
+        <h2 class="section-heading">A collector<br>before he was<br>a <span>billionaire.</span></h2>
+        <p class="body-text">Long before scrap metal made Adam Weitsman a household name in upstate New York, he was an art collector. He began acquiring 19th-century American stoneware as a teenager — a passion that would eventually produce one of the world's most significant collections of its kind.</p>
+        <div class="art-collection-card">
+          <h4>New York State Museum · Albany</h4>
+          <p>In 2014, Weitsman donated his entire private stoneware collection — over 500 pieces including rare crocks, jugs, and jars with intricate cobalt blue decorations — to the New York State Museum. The gift, valued at $10 million, represents decades of dedicated collecting.</p>
+          <div class="art-highlight">500+ pieces</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KREBS -->
+  <section class="krebs-section" id="krebs">
+    <div class="krebs-inner">
+      <div class="krebs-card">
+        <div class="krebs-card-year">1899</div>
+        <div class="krebs-card-title">The Krebs</div>
+        <div class="krebs-card-sub">Skaneateles, New York · Est. 1899 · Finger Lakes</div>
+        <p>A historic fine dining restaurant in the beautiful lake town of Skaneateles in New York's Finger Lakes region. Founded in 1899 — one of the oldest restaurants in New York State. Adam purchased and fully renovated The Krebs in 2010, reopening it in 2014.</p>
+      </div>
+      <div class="krebs-right">
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Restaurants</span></div>
+        <h2 class="section-heading">Restoring history.<br>Giving back <span>profits.</span></h2>
+        <p class="body-text">When Adam Weitsman acquired The Krebs in 2010, the 111-year-old restaurant had closed its doors. He spent years renovating it back to its original grandeur and reopened it as one of the Finger Lakes region's premier dining destinations.</p>
+        <p class="body-text">True to form, Adam donates all of the restaurant's net profits to 16 regional nonprofit organizations focused on women's and children's causes in Central New York. The Krebs isn't just a restaurant — it's a vehicle for community impact.</p>
+        <a href="#contact" class="btn-orange" style="margin-top:12px; display:inline-block">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section class="social-section">
+    <div class="social-inner">
+      <div class="social-left">
+        <h2>17 Million<br>Followers.</h2>
+        <p>Adam Weitsman is one of the most followed entrepreneurs in the United States — with 17 million Instagram followers and a presence across all major platforms. His feed mixes philanthropy, business, family, and a genuine personality that resonates far beyond the business world.</p>
+        <a href="https://www.instagram.com/adamweitsman/" target="_blank" class="btn-dark">Follow on Instagram</a>
+      </div>
+      <div class="social-right">
+        <a href="https://www.instagram.com/adamweitsman/" target="_blank" class="social-platform">
+          <div class="social-platform-name">Instagram</div>
+          <div class="social-platform-handle">@adamweitsman</div>
+        </a>
+        <a href="https://x.com/AdamWeitsman" target="_blank" class="social-platform">
+          <div class="social-platform-name">X / Twitter</div>
+          <div class="social-platform-handle">@AdamWeitsman</div>
+        </a>
+        <a href="https://www.linkedin.com/in/adam-weitsman-56a3912" target="_blank" class="social-platform">
+          <div class="social-platform-name">LinkedIn</div>
+          <div class="social-platform-handle">Adam Weitsman</div>
+        </a>
+        <a href="https://www.facebook.com/adamweitsman" target="_blank" class="social-platform">
+          <div class="social-platform-name">Facebook</div>
+          <div class="social-platform-handle">Adam Weitsman</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="eyebrow" style="justify-content:center; margin-bottom:14px">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Contact</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2>Get in Touch.</h2>
+      <p>Business inquiries, media and press, speaking engagements, philanthropy partnerships, or general correspondence — fill out the form below.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" /></div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Business / Partnership</option>
+            <option>Media / Press</option>
+            <option>Speaking Engagement</option>
+            <option>Philanthropy / Charity</option>
+            <option>The Krebs Restaurant</option>
+            <option>General Message</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="What would you like to discuss?"></textarea></div>
+        <button class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Adam <span>Weitsman</span></div>
+          <div class="footer-tagline">Entrepreneur · Philanthropist · Art Collector · Owego, NY</div>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="#about">The Story</a></li>
+            <li><a href="#business">Upstate Shredding</a></li>
+            <li><a href="#art">Art Collection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Ventures</h5>
+          <ul>
+            <li><a href="https://www.upstateshredding.com" target="_blank">Upstate Shredding</a></li>
+            <li><a href="#krebs">The Krebs</a></li>
+            <li><a href="#philanthropy">Philanthropy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="https://www.instagram.com/adamweitsman/" target="_blank">Instagram</a></li>
+            <li><a href="https://x.com/AdamWeitsman" target="_blank">X / Twitter</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Adam Weitsman. All rights reserved.</p>
+        <p class="footer-copy" style="font-style:italic; color:var(--orange); opacity:0.6;">Leveling up in 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
