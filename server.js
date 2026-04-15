@@ -4,15 +4,26 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Force HTTPS — Railway proxy sets x-forwarded-proto header
+const CANONICAL = 'adam.parfour.io';
+
 app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    return res.redirect(301, 'https://' + req.headers.host + req.url);
+  const host = req.headers['x-forwarded-host'] || req.headers.host || '';
+  const proto = req.headers['x-forwarded-proto'] || 'https';
+
+  // Redirect non-canonical host → adam.parfour.io
+  if (host && !host.includes(CANONICAL)) {
+    return res.redirect(301, 'https://' + CANONICAL + req.url);
   }
+
+  // Redirect HTTP → HTTPS
+  if (proto === 'http') {
+    return res.redirect(301, 'https://' + CANONICAL + req.url);
+  }
+
   next();
 });
 
-// Serve static files from current directory
+// Serve static files
 app.use(express.static(__dirname));
 
 // Fallback to index.html
