@@ -1346,6 +1346,11 @@
         e.preventDefault();
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        // Logo / #top always scrolls to the very top of the page
+        if (id === 'top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
         const top = el.getBoundingClientRect().top + window.scrollY - NAV_H + PAD_SKIP;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
